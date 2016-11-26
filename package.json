@@ -1,0 +1,22 @@
+{
+  "name": "http-lm-sensors-json-api",
+  "version": "1.0.0",
+  "description": "JSON API for reading/parsing lm-sensors command output",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mnofresno/sensors-api.git"
+  },
+  "author": "Mariano Fresno mnofresno@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mnofresno/sensors-api/issues"
+  },
+  "homepage": "https://github.com/mnofresno/sensors-api#readme",
+  "dependencies": {
+    "sensors.js": "git+https://github.com/mnofresno/sensors.js.git"
+  }
+}
