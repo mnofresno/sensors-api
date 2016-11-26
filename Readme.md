@@ -28,6 +28,12 @@ Run the application server:
 
 node main.js
 
+to keep the server running in background, you can install nohup with sudo apt-get install nohup, then you can run:
+
+nohup node main.js &
+
+So you can permanently monitor your server's physical parameters (temperature, CPU usage, RPM, etc...) remotely via the HTTP server API.
+
 ## Authors
 
 Mariano M. Fresno mnofresno@gmail.com
