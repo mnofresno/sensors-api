@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Load server parameters from ajax</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <script>
+            $(document).ready(function()
+            {
+                var success = function(response)
+                {
+                    var devicesNames = Object.keys(response);
+                    
+                    devicesNames.forEach(function(deviceName)
+                    {
+                        $('#measurements').append("<p>Device: " + deviceName + "</p>");
+                        var adaptorsNames = Object.keys(response[deviceName]);
+                        adaptorsNames.forEach(function(adaptorName)
+                        {
+                            $('#measurements').append("<p>Interface: " + adaptorName + "</p>");
+                            var measures = response[deviceName][adaptorName];
+                            var measuresNames = Object.keys(measures);
+                            measuresNames.forEach(function(measureName)
+                            {
+                                var measure = measures[measureName];
+                                
+                                $('#measurements').append("<li><p>" + measure.name + " : <strong>" + measure.value + " (" + measure.type + ")</strong></p></li>");
+                            });
+                        });
+                        
+                    
+                    });
+                    
+                };
+                
+                $.ajax({ method: 'GET', url: "http://localhost:8922", success: success, contentType: "application/json"});
+            });
+            
+        </script>
+        <div id="measurements">
+        </div>
+    </body>
+</html>
