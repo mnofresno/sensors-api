@@ -5,8 +5,8 @@ function readSensors(response)
 {
     lm_sensors.sensors(function (data, error)
     {
-	if (error) throw error;
-	response.end(JSON.stringify(data));
+        if (error) throw error;
+        response.end(JSON.stringify(data));
     });
 }
 

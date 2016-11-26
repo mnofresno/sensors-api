@@ -8,8 +8,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-# V8 Javascript engine node.js https://nodejs.org
-# lm-sensors https://github.com/groeck/lm-sensors
+V8 Javascript engine node.js https://nodejs.org
+lm-sensors https://github.com/groeck/lm-sensors
 
 in debian derivative systems, issue the following command:
 
@@ -25,11 +25,13 @@ Intall the dependencies:
 
 npm install
 
-Run the application server:
+### Running:
+
+run the application server with the following command
 
 node main.js
 
-to keep the server running in background, you can install nohup with sudo apt-get install nohup, then you can run:
+to keep up the server running in background, you can install 'nohup' (sudo apt-get install nohup), then you can run:
 
 nohup node main.js &
 
@@ -47,4 +49,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Inspirated by https://github.com/BeryJu/sensors.js @BeryJu excelent library
+* Inspirated by https://github.com/BeryJu/sensors.js BeryJu's excelent javascript library
