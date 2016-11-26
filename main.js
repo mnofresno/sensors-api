@@ -14,7 +14,18 @@ const PORT=8922;
 
 function handleRequest(request, response)
 {
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Request-Method', '*');
+    response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+    response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    if ( request.method === 'OPTIONS' ) 
+    {
+        response.writeHead(202);
+        response.end();
+        return;
+    }
     response.writeHead(200, {"Content-Type": "application/json"});
+    
     readSensors(response);
 }
 
