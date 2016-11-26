@@ -8,11 +8,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-V8 Javascript engine node.js
+# V8 Javascript engine node.js https://nodejs.org
+# lm-sensors https://github.com/groeck/lm-sensors
 
-in debian derivative systems issue the following command:
+in debian derivative systems, issue the following command:
 
-sudo apt-get install nodejs
+sudo apt-get install nodejs lm-sensors
 
 ### Installing
 
