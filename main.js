@@ -1,14 +1,19 @@
-var lm_sensors = require('sensors.js');
-var http       = require('http');
-var md         = require('./mdadm');
+var lm_sensors   = require('sensors.js');
+var http         = require('http');
+var md           = require('./mdadm');
+var childProcess = require('child_process');
 
 function readSensors(response)
 {
     lm_sensors.sensors(function (sensors, error)
     {
         if (error) throw error;
-        var data = { sensors: sensors, disks: processMd(};
-        response.end(JSON.stringify(data));
+        
+        childProcess.exec('cat /proc/mdstat', function(error,stdout, stderr)
+        {
+            var data = { disks: processMd(), sensors: sensors };
+            response.end(JSON.stringify(data));
+        });
     });
 }
 
