@@ -1,11 +1,13 @@
 var lm_sensors = require('sensors.js');
 var http       = require('http');
+var md         = require('./mdadm');
 
 function readSensors(response)
 {
-    lm_sensors.sensors(function (data, error)
+    lm_sensors.sensors(function (sensors, error)
     {
         if (error) throw error;
+        var data = { sensors: sensors, disks: processMd(};
         response.end(JSON.stringify(data));
     });
 }

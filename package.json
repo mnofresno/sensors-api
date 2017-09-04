@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/mnofresno/sensors-api#readme",
   "dependencies": {
+    "lodash": "^4.17.4",
     "sensors.js": "git+https://github.com/mnofresno/sensors.js.git"
   }
 }
