@@ -8,8 +8,10 @@ function readSensors(response)
     {
         if (error) throw error;
         
-        md.stats(function(disks)
+        md.stats(function(disks, error)
         {
+            if (error) throw error;
+            
             var data = { disks: disks, sensors: sensors };
             response.end(JSON.stringify(data));
         });

@@ -63,7 +63,7 @@ var getMdStats = function(callback)
 {
     childProcess.exec('cat /proc/mdstat', function(error, stdout, stderr)
     {
-        callback(processDisks(stdout));
+        callback(processDisks(stdout), error);
     });
 };
 
