@@ -1,10 +1,9 @@
-var _ = require('lodash');
+var _            = require('lodash');
+var childProcess = require('child_process');
 
-var data = 'Personalities : [raid6] [raid5] [raid4] \nmd0 : active raid5 sda[4] sdd[3] sdc[5]\n      3906766752 blocks super 1.2 level 5, 4k chunk, algorithm 2 [3/3] [UUU]\n      \nunused devices: <none>\n';
-
-var processDisks = function(discos)
+var processDisks = function(data)
 {
-    discos = data;
+    discos = data.toString();
     discos = discos.split("\n");
     var output = {};
     var matchBraces = /\[(.*?)\]/g;
@@ -46,7 +45,7 @@ var processDisks = function(discos)
             }); 
         }
         
-        if(key.startsWith("md"))
+        if(/md\d/.test(key))
         {
             var components = value.split(" ");
             value = components;
@@ -60,4 +59,12 @@ var processDisks = function(discos)
     return output;
 };
 
-module.exports = { process: processDisks };
+var getMdStats = function(callback)
+{
+    childProcess.exec('cat /proc/mdstat', function(error, stdout, stderr)
+    {
+        callback(processDisks(stdout));
+    });
+};
+
+module.exports = { process: processDisks, stats: getMdStats };
