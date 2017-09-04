@@ -11,7 +11,7 @@ function readSensors(response)
         
         childProcess.exec('cat /proc/mdstat', function(error,stdout, stderr)
         {
-            var data = { disks: processMd(), sensors: sensors };
+            var data = { disks: md.process(), sensors: sensors };
             response.end(JSON.stringify(data));
         });
     });

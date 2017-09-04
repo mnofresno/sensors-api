@@ -60,4 +60,4 @@ var processDisks = function(discos)
     return output;
 };
 
-module.exports = processDisks;
+module.exports = { process: processDisks };
